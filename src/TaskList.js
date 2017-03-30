@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 import AddTask from './AddTask';
+import DelTask from './DelTask';
 
 //import GetTasksQuery from './graphql/GetTasksQuery.graphql'
 import GetTasksQuery from './graphql/GetTasksQuery'
@@ -15,15 +16,21 @@ function TaskList({ data: { loading, taskList } }) {
         return <div>Loading</div>;
     } else {
         return (
-            <ul>
-                {taskList.map(task => (
-                    <li key={task.id}>
-                        {task.content}
+            <div>
+                <AddTask />
 
-                        <AddTask taskContent={task.content} />
-                    </li>
-                ))}
-            </ul>
+                <div>
+                    <ul>
+                        {taskList.map(({id, content}) => (
+                            <li key={id}>
+                                <span>{content}</span>
+
+                                <span><DelTask taskId={id} /></span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
         );
     }
 }
