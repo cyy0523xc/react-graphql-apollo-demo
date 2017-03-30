@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 
-import './App.css';
-
 import TaskList from './TaskList';
 
 class App extends Component {
