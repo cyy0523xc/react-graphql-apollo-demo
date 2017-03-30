@@ -17,7 +17,9 @@ function TaskList({ data: { loading, taskList } }) {
     } else {
         return (
             <div>
-                <AddTask />
+                <div>
+                    <AddTask />
+                </div>
 
                 <div>
                     <ul>
@@ -47,7 +49,7 @@ export default graphql(
     }
 )(TaskList)*/
 
-const GET_TASKS_QUERY = gql`
+export const GET_TASKS_QUERY = gql`
   query getTodos($status: TaskStatus!) {
     taskList(status: $status) {
       id
@@ -55,14 +57,19 @@ const GET_TASKS_QUERY = gql`
       status
     }
   }
-`
+`;
 
+export const hello = 'hello world.';
+
+console.log("in task list");
 console.log(GET_TASKS_QUERY);
 
-export default graphql(GET_TASKS_QUERY, {
+export const withTasks = graphql(GET_TASKS_QUERY, {
     options: { 
-        variables: { status: "todo"},
+        variables: {status: "todo"},
         fetchPolicy: 'cache-and-network',
         //pollInterval: 5000  // 定时刷新数据
     },
-})(TaskList);
+});
+
+export default withTasks(TaskList);
