@@ -8,6 +8,9 @@ git clone https://github.com/cyy0523xc/react-graphql-apollo-demo
 cd react-graphql-apollo-demo
 npm install
 
+# 配置文件
+cp src/config.example.js src/config.js
+
 npm start
 ```
 
