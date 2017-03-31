@@ -21,6 +21,7 @@ https://github.com/cyy0523xc/go-graphql-weekly
 
 ## 相关文档地址
 
-- Apollo：http://dev.apollodata.com/react/index.html 
+- Apollo Client: http://dev.apollodata.com/core/index.html
+- Apollo React：http://dev.apollodata.com/react/index.html 
 
 
