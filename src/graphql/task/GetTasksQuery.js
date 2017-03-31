@@ -1,14 +1,16 @@
 // 获取任务列表
 import gql from 'graphql-tag';
 
+const GET_TASKS_QUERY_NAME = 'taskList';
+
 const GET_TASKS_QUERY = gql`
 query getTasks($status: TaskStatus!) {
-  taskList(status: $status) {
+  ${GET_TASKS_QUERY_NAME}(status: $status) {
     id
     content
     status
   }
-}`
+}`;
 
 export default GET_TASKS_QUERY;
 

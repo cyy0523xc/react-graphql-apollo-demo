@@ -6,8 +6,7 @@ import DelTask from './DelTask';
 
 import GET_TASKS_QUERY from '../../graphql/task/GetTasksQuery'
 
-// The data prop, which is provided by the wrapper below contains,
-// a `loading` key while the query is in flight and posts when it is ready
+
 function TaskList({ data: { loading, taskList } }) {
     if (loading) {
         return <div>Loading</div>;
@@ -23,7 +22,6 @@ function TaskList({ data: { loading, taskList } }) {
                         {taskList.map(({id, content}) => (
                             <li key={id}>
                                 <span>{content}</span>
-
                                 <span><DelTask taskId={id} /></span>
                             </li>
                         ))}
@@ -33,9 +31,6 @@ function TaskList({ data: { loading, taskList } }) {
         );
     }
 }
-
-console.log("in task list");
-console.log(GET_TASKS_QUERY);
 
 // 查询任务列表
 export const withTasks = graphql(GET_TASKS_QUERY, {

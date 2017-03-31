@@ -1,7 +1,7 @@
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 
-import auth from "./middleware/auth"
-import error from "./afterware/error"
+import auth from "./middleware/auth";
+import error from "./afterware/error";
 
 export default (uri) => {
     const networkInterface = createNetworkInterface({uri: uri});
@@ -15,4 +15,4 @@ export default (uri) => {
         dataIdFromObject: r => r.id,
     });
     return client
-}
+};

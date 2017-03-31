@@ -45,7 +45,7 @@ export default graphql(ADD_TASK_MUTATION, {
         update: (proxy, { data: { createTask } }) => {
             // readQuery从本地读取
             const queryData = proxy.readQuery(getTasksQuery('todo'));
-            console.log(queryData.taskList);
+            //console.log(queryData.taskList);
             queryData.taskList.push(createTask);
             proxy.writeQuery(getTasksQuery('todo', queryData));
         },
