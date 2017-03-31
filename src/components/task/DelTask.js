@@ -15,15 +15,14 @@ function DelTask({ mutate, taskId }) {
         }).catch((error) => {
             console.log(error);
         });
-    };
-
+    }
     return (
         <Button type="primary" onClick={onClick}> 删除 </Button>
     )
 }
 
 export default graphql(DEL_TASK_MUTATION, {
-    options: (props) => ({
+    options: () => ({
         refetchQueries: [ 
             {
                 query: GET_TASKS_QUERY,
@@ -31,6 +30,6 @@ export default graphql(DEL_TASK_MUTATION, {
                     status: 'todo'
                 }
             }
-        ]
+        ],
     })
 })(DelTask);

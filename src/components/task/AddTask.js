@@ -10,6 +10,7 @@ const ENTER_KEY_CODE = 13;
 
 function AddTask({ mutate }) {
     const onCommit = (e) => {
+        console.log("aaa");
         if (e.keyCode === ENTER_KEY_CODE) {
             mutate({ 
                 variables: { taskContent: e.target.value }
@@ -19,7 +20,7 @@ function AddTask({ mutate }) {
                 console.log(error);
             });
         }
-    };
+    }
 
     return (
         <Input 
@@ -41,6 +42,6 @@ export default graphql(ADD_TASK_MUTATION, {
                     status: 'todo'
                 }
             }
-        ]
+        ],
     })
 })(AddTask);
