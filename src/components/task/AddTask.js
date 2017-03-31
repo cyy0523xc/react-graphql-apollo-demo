@@ -3,14 +3,11 @@ import { graphql } from 'react-apollo';
 
 import { Input } from 'antd';
 
-import GET_TASKS_QUERY from './graphql/GetTasksQuery'
-import ADD_TASK_MUTATION from './graphql/AddTaskMutation'
-//import { GET_TASKS_QUERY } from './TaskList'
+import GET_TASKS_QUERY from '../../graphql/task/GetTasksQuery'
+import ADD_TASK_MUTATION from '../../graphql/task/AddTaskMutation'
 
 const ENTER_KEY_CODE = 13;
 
-// A mutation is made available on a callback called `mutate`
-// Other props of the wrapping component are passed through.
 function AddTask({ mutate }) {
     const onCommit = (e) => {
         if (e.keyCode === ENTER_KEY_CODE) {
@@ -35,7 +32,6 @@ function AddTask({ mutate }) {
 console.log("in add task");
 console.log(GET_TASKS_QUERY);
 
-// You can also use `graphql` for GraphQL mutations
 export default graphql(ADD_TASK_MUTATION, {
     options: () => ({
         refetchQueries: [ 

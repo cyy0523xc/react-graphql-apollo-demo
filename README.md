@@ -11,7 +11,8 @@ npm install
 # 配置文件
 cp src/config.example.js src/config.js
 
-npm start
+# or yarn start
+npm start 
 ```
 
 ## Server API

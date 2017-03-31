@@ -3,11 +3,9 @@ import { graphql } from 'react-apollo';
 
 import { Button  } from 'antd';
 
-import GET_TASKS_QUERY from './graphql/GetTasksQuery'
-import DEL_TASK_MUTATION from './graphql/DelTaskMutation'
+import GET_TASKS_QUERY from '../../graphql/task/GetTasksQuery'
+import DEL_TASK_MUTATION from '../../graphql/task/DelTaskMutation'
 
-// A mutation is made available on a callback called `mutate`
-// Other props of the wrapping component are passed through.
 function DelTask({ mutate, taskId }) {
     const onClick = () => {
         mutate({ 
@@ -24,7 +22,6 @@ function DelTask({ mutate, taskId }) {
     )
 }
 
-// You can also use `graphql` for GraphQL mutations
 export default graphql(DEL_TASK_MUTATION, {
     options: (props) => ({
         refetchQueries: [ 

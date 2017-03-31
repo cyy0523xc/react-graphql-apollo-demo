@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo';
 import AddTask from './AddTask';
 import DelTask from './DelTask';
 
-import GET_TASKS_QUERY from './graphql/GetTasksQuery'
+import GET_TASKS_QUERY from '../../graphql/task/GetTasksQuery'
 
 // The data prop, which is provided by the wrapper below contains,
 // a `loading` key while the query is in flight and posts when it is ready

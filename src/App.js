@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 
-import TaskList from './TaskList';
+import TaskList from './components/task/TaskList';
 import CONFIG from "./config"
+import client from "./network/client"
 
 class App extends Component {
     constructor(...args) {
         super(...args);
-
-        const networkInterface = createNetworkInterface({uri: CONFIG.uri});
-        this.client = new ApolloClient({
-            networkInterface,
-            dataIdFromObject: r => r.id,
-        });
+        this.client = client(CONFIG.uri)
     }
     render() {
         return (
