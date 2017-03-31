@@ -1,7 +1,0 @@
-query getTasks($status: TaskStatus!) {
-  taskList(status: $status) {
-    id
-    content
-    status
-  }
-}

@@ -10,4 +10,7 @@ build
 .DS_Store
 npm-debug.log
 
+# 配置文件
+src/config.js
+
 *.json.gzip

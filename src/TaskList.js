@@ -1,13 +1,10 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 import AddTask from './AddTask';
 import DelTask from './DelTask';
 
-//import GetTasksQuery from './graphql/GetTasksQuery.graphql'
-import GetTasksQuery from './graphql/GetTasksQuery'
-console.log(GetTasksQuery);
+import GET_TASKS_QUERY from './graphql/GetTasksQuery'
 
 // The data prop, which is provided by the wrapper below contains,
 // a `loading` key while the query is in flight and posts when it is ready
@@ -37,33 +34,10 @@ function TaskList({ data: { loading, taskList } }) {
     }
 }
 
-/*
-export default graphql(
-    GetTasksQuery,
-    {
-        options: { 
-            variables: { status: "todo"},
-            //fetchPolicy: 'cache-and-network',
-            //pollInterval: 5000  // 定时刷新数据
-        },
-    }
-)(TaskList)*/
-
-export const GET_TASKS_QUERY = gql`
-  query getTodos($status: TaskStatus!) {
-    taskList(status: $status) {
-      id
-      content
-      status
-    }
-  }
-`;
-
-export const hello = 'hello world.';
-
 console.log("in task list");
 console.log(GET_TASKS_QUERY);
 
+// 查询任务列表
 export const withTasks = graphql(GET_TASKS_QUERY, {
     options: { 
         variables: {status: "todo"},

@@ -1,10 +1,11 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 import { Input } from 'antd';
 
-import { GET_TASKS_QUERY } from './TaskList'
+import GET_TASKS_QUERY from './graphql/GetTasksQuery'
+import ADD_TASK_MUTATION from './graphql/AddTaskMutation'
+//import { GET_TASKS_QUERY } from './TaskList'
 
 const ENTER_KEY_CODE = 13;
 
@@ -30,14 +31,6 @@ function AddTask({ mutate }) {
         />
     )
 }
-
-const ADD_TASK_MUTATION = gql`
-  mutation addTask($taskContent: String!) {
-    createTask(content: $taskContent) {
-      id
-    }
-  }
-`;
 
 console.log("in add task");
 console.log(GET_TASKS_QUERY);
