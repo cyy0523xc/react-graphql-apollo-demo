@@ -2,9 +2,11 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  mutation addTask($taskContent: String!) {
-    createTask(content: $taskContent) {
-      id
-    }
+mutation addTask($taskContent: String!) {
+  createTask(content: $taskContent) {
+    id
+    content
+    status
   }
+}
 `

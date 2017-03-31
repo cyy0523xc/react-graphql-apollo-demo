@@ -2,9 +2,11 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  mutation delTask($taskId: Int!) {
-    deleteTask(id: $taskId) {
-      id
-    }
+mutation delTask($taskId: Int!) {
+  deleteTask(id: $taskId) {
+    id
+    content
+    status
   }
+}
 `
